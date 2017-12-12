@@ -1,43 +1,34 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-import classnames from 'classnames';
 
-// Task component - represents a single todo item
-export default class NewUser extends Component {
+class NewUser extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-    };
+    this.state = { };
     this.toggleLand = this.toggleLand.bind(this);
   }
   toggleLand() {
       this.props.togLanding();
   }
   addUser(){
+    // srojas19: const chef = {name: ReactDOM, ... };
+    const name = ReactDOM.findDOMNode(this.refs.userName).value.trim();
+    const country = ReactDOM.findDOMNode(this.refs.userCountry).value.trim();
+    const email = ReactDOM.findDOMNode(this.refs.userEmail).value.trim();
+    const phone = ReactDOM.findDOMNode(this.refs.userPhone).value.trim();
+    const age = ReactDOM.findDOMNode(this.refs.userAge).value.trim();
+    const gender = ReactDOM.findDOMNode(this.refs.userGender).value.trim();
+    const description = ReactDOM.findDOMNode(this.refs.userDescription).value.trim();
 
-        
-        const name = ReactDOM.findDOMNode(this.refs.userName).value.trim();
-        const country = ReactDOM.findDOMNode(this.refs.userCountry).value.trim();
-        const email = ReactDOM.findDOMNode(this.refs.userEmail).value.trim();
-        const phone = ReactDOM.findDOMNode(this.refs.userPhone).value.trim();
-        const age = ReactDOM.findDOMNode(this.refs.userAge).value.trim();
-        const gender = ReactDOM.findDOMNode(this.refs.userGender).value.trim();
-        const description = ReactDOM.findDOMNode(this.refs.userDescription).value.trim();
-    
-        Meteor.call('chefs.insert', name, country, email, phone,age,gender, description);
-        this.toggleLand();
+    // srojas19: De modificarse el metodo chefs.insert en el api, hacer llamado:
+    // Meteor.call('chefs.insert', chef);
+    Meteor.call('chefs.insert', name, country, email, phone,age,gender, description);
+    this.toggleLand();
   }
 
+  // srojas19: Hallar forma de renderizar lista de paises sin escribir cada uno manualmente.
   render() {
-    // Give tasks a different className when they are checked off,
-    // so that we can style them nicely in CSS
-    //const newRecipeClassName = classnames({
-    //checked: this.props.task.checked,
-    //private: this.props.task.private,
-    // });
-
     return (
       <div>
         User Information
@@ -324,3 +315,6 @@ export default class NewUser extends Component {
 NewUser.propTypes = {
     togLanding: React.PropTypes.func.isRequired,
 };
+
+// srojas19: Exportar la clase al final para reconocer los propTypes
+export default NewUser;
