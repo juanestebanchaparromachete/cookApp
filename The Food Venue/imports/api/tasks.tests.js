@@ -5,12 +5,13 @@ import { Random } from 'meteor/random';
 import { assert } from 'meteor/practicalmeteor:chai';
 
 import { Tasks } from './tasks.js';
-
+//Muy bien por haber realizado test de la aplicacion, es algo muy importante ya en la practica.
 if (Meteor.isServer) {
   describe('Tasks', () => {
     describe('methods', () => {
       const userId = Random.id();
       let taskId;
+      //EXCELENTE uso de const y let en ECMAScript 6, en vez de var
 
       beforeEach(() => {
         Tasks.remove({});
