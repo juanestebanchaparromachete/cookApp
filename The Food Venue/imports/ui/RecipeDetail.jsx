@@ -1,10 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-import classnames from 'classnames';
 
-// Task component - represents a single todo item
-export default class RecipeDetail extends Component {
+class RecipeDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -93,3 +91,5 @@ RecipeDetail.propTypes = {
   goUser: PropTypes.func.isRequired,
   curUser: PropTypes.object.isRequired,
 };
+
+export default RecipeDetail;
