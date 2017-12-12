@@ -18,6 +18,8 @@ import NewUser from './NewUser.jsx';
 import Chef from './Chef.jsx';
 
 // App component - represents the whole app
+
+//En general muy buen trabajo, excelente uso de componentes, funciones, proptypes, entre otros.
 class App extends Component {
   constructor(props) {
     super(props);
