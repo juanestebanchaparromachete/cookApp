@@ -17,6 +17,9 @@ import RecipeDetail from './RecipeDetail.jsx';
 import NewUser from './NewUser.jsx';
 import Chef from './Chef.jsx';
 
+//imports sin usar, como import Task from './Task.jsx'
+//es importante tambien dejar el codigo limpio e ir quitando cosas que no se va a usar
+
 // App component - represents the whole app
 class App extends Component {
   constructor(props) {
@@ -31,6 +34,7 @@ class App extends Component {
     this.toggleRecipeDetail = this.toggleRecipeDetail.bind(this);
     this.toggleProfileID = this.toggleProfileID.bind(this);
     this.toggleLanding = this.toggleLanding.bind(this);
+   //se realiza el bind adecuadamente, aunque se pueden explorar otras formas mas sencillas de hacerlo como usar arrow functions
   }
   toggleCreateRecipe() {
     this.setState({
@@ -98,6 +102,7 @@ class App extends Component {
         <header>
           <div className="navbar">
             <img onClick={this.toggleLanding.bind(this)} src="logo.svg" alt="" />
+            //Bien por el uso de alt en las imagenes
             <div onClick={this.toggleLanding.bind(this)} className="navTitle">
               the food venue
             </div>
@@ -127,6 +132,7 @@ App.propTypes = {
   user: PropTypes.object,
   currentUser: PropTypes.object,
 };
+//Muy bien por utilizar proptypes
 
 export default createContainer(() => {
   Meteor.subscribe('tasks');
