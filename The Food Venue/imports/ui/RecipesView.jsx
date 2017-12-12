@@ -1,11 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-import classnames from 'classnames';
 
 import Recipe from './Recipe.jsx';
 
-export default class RecipesView extends Component {
+class RecipesView extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -72,3 +71,6 @@ RecipesView.propTypes = {
     recipes: PropTypes.array.isRequired,
     viewRecipe: PropTypes.func.isRequired,
 };
+
+// srojas19: exportar clase al final para reconocer propTypes
+export default RecipesView;
