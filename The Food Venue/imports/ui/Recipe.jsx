@@ -1,12 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
-import classnames from 'classnames';
 
-// Task component - represents a single todo item
-export default class Recipe extends Component {
+class Recipe extends Component {
   constructor(props) {
     super(props);
-
     this.goRecipe = this.goRecipe.bind(this);
   }
   goRecipe(idR) {
@@ -46,3 +43,6 @@ Recipe.propTypes = {
   num: React.PropTypes.number.isRequired,
   seeRecipe: PropTypes.func.isRequired,
 };
+
+// srojas19: Exportar clase al final para que reconozca que propTypes debe recibir.
+export default Recipe;
