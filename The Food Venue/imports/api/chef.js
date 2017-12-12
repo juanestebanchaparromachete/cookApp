@@ -12,6 +12,7 @@ if (Meteor.isServer) {
   });
 }
 
+//Al igual que en el otro archivo, se aconseja reducir todos los parámetros a un objeto.
 Meteor.methods({
     'chefs.insert'( name, country, email, phone,age,gender, description) {
         check(name, String);
