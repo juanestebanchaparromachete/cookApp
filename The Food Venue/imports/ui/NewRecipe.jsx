@@ -81,7 +81,7 @@ export default class NewRecipe extends Component {
     const video = ReactDOM.findDOMNode(this.refs.recipeVideo).value.trim();
     const country = ReactDOM.findDOMNode(this.refs.recipeCountry).value.trim();
     const typeOfFood = ReactDOM.findDOMNode(this.refs.recipeTypeOfFood).value.trim();
-
+    //Se aconseja guardar todos los parámetros dentro de un único objeto, y asociar una función de callback para el manejo de eventuales errores.
     Meteor.call('recipes.insert',this.props.user.userID ,name, description, process, video, this.state.ingredients,typeOfFood,country);
   }
 
