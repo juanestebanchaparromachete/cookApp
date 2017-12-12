@@ -12,6 +12,7 @@ if (Meteor.isServer) {
   });
 }
 
+//Por orden es aconsejable recibir toda la información a guardar dentro de un objeto, en vez de tener muchos parámetros.
 Meteor.methods({
     'recipes.insert'(userId, name, description, process,video, ingredients,typeOfFood , country) {
         check(name, String);
