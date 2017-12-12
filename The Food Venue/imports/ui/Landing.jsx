@@ -1,9 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
-import classnames from 'classnames';
 
-// Task component - represents a single todo item
-export default class Landing extends Component {
+class Landing extends Component {
   render() {
     return (
       <div id="landing">
@@ -60,3 +58,5 @@ export default class Landing extends Component {
 Landing.propTypes = {
   recipes: PropTypes.func.isRequired,
 };
+
+export default Landing;
