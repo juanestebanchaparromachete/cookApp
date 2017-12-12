@@ -3,12 +3,16 @@ import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 import { Recipes } from '../api/recipe.js';
 
+//imports sin usar, como import Task from 'classnames';
+//es importante tambien dejar el codigo limpio e ir quitando cosas que no se va a usar
+
 // Task component - represents a single todo item
 export default class Chef extends Component {
 
     constructor(props) {
         super(props);
         this.goRecipe = this.goRecipe.bind(this);
+        //se realiza el bind adecuadamente, aunque se pueden explorar otras formas más sencillas de hacerlo como usar arrow functions
     }
     goRecipe(idR) {
         this.props.viewRecipe(idR);
@@ -51,6 +55,7 @@ export default class Chef extends Component {
                             <div className="txt1"><b>Description:</b> {recipe.description} </div>
                             <br />
                             <div className="rating">{recipe.rating}<img src="/favorite.png" alt="" /> </div>
+                            //Bien por el uso de alt en las imagenes
                         </div>
                     </div>
                 );
@@ -68,6 +73,7 @@ export default class Chef extends Component {
 
             return r.map((recipe) => {
                 var i = "https://www.youtube.com/embed/" + recipe.video + "?autoplay=0";
+                //En ECMAScript6 se debe hacer uso de let o const para definir varibles
                 return (
                     <div className="videoProfile">
                         <iframe src={i}>
