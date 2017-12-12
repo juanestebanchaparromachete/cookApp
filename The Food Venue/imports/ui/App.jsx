@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import { Tasks } from '../api/tasks.js';
+// srojas19: Borrar import de tasks porque no es necesario.
 import { Chefs } from '../api/chef.js';
 import { Recipes } from '../api/recipe.js';
 
-
-import Task from './Task.jsx';
+// srojas19: Borrar componente de tasks porque no es necesario
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 import Landing from './Landing.jsx';
 import NewRecipe from './NewRecipe.jsx';
@@ -38,13 +37,9 @@ class App extends Component {
     });
   }
   incompleteUser() {
-    if (this.state.currentPage != 'incompleteUser') {
-      if (!this.props.user && this.props.currentUser) {
-        this.setState({
-          currentPage: 'incompleteUser',
-        });
-      }
-    }
+    // srojas19: Se concatenaron los dos ifs en uno para mejorar mantenibilidad.
+    if (this.state.currentPage != 'incompleteUser' && !this.props.user && this.props.currentUser)
+      this.setState({ currentPage: 'incompleteUser'});
   }
   toggleLanding() {
     this.setState({
@@ -129,7 +124,7 @@ App.propTypes = {
 };
 
 export default createContainer(() => {
-  Meteor.subscribe('tasks');
+ // srojas19: Eliminado suscripción a tasks, pues hace parte del template de meteor y es innecesario.
   Meteor.subscribe('chefs');
   Meteor.subscribe('recipes');
   if (Meteor.user()) {
