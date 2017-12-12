@@ -1,10 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-import classnames from 'classnames';
 
-// Task component - represents a single todo item
-export default class NewRecipe extends Component {
+class NewRecipe extends Component {
   constructor(props) {
     super(props);
 
@@ -41,7 +39,8 @@ export default class NewRecipe extends Component {
         type,
         amount,
       };
-      const updateIngredients = this.state.ingredients;
+      // srojas19: Cambio de const a let, porque se trata de modificar en la siguiente instrucción
+      let updateIngredients = this.state.ingredients;
       updateIngredients.push(newIngredient);
       this.setState({
         ingredients: updateIngredients,
@@ -67,7 +66,8 @@ export default class NewRecipe extends Component {
   }
 
   deleteIngredient(key) {
-    const updateIngredients = this.state.ingredients;
+    // srojas19: cambio de const a let, porque se trata de modificar el objeto en la siguiente instrucción
+    let updateIngredients = this.state.ingredients;
     updateIngredients.splice(key, 1);
     this.setState({
       ingredients: updateIngredients,
@@ -75,6 +75,8 @@ export default class NewRecipe extends Component {
     });
   }
   addRecipe() {
+    // srojas19: Crear un objeto llamado recipe con:
+    // const recipe = {name : ReacDOM.find ..., description: ... };
     const name = ReactDOM.findDOMNode(this.refs.recipeName).value.trim();
     const description = ReactDOM.findDOMNode(this.refs.recipeDescription).value.trim();
     const process = ReactDOM.findDOMNode(this.refs.recipeProcess).value.trim();
@@ -82,18 +84,13 @@ export default class NewRecipe extends Component {
     const country = ReactDOM.findDOMNode(this.refs.recipeCountry).value.trim();
     const typeOfFood = ReactDOM.findDOMNode(this.refs.recipeTypeOfFood).value.trim();
 
+    // srojas19: De modificarse para que se reciba un solo objeto por parametro, hacer:
+    // Meteor.call('recipes.insert', recipe)
     Meteor.call('recipes.insert',this.props.user.userID ,name, description, process, video, this.state.ingredients,typeOfFood,country);
   }
 
-
+  // srojas19: Se deberia hallar una mejor forma de renderizar las opciones de pais.
   render() {
-    // Give tasks a different className when they are checked off,
-    // so that we can style them nicely in CSS
-    //const newRecipeClassName = classnames({
-    //checked: this.props.task.checked,
-    //private: this.props.task.private,
-    // });
-
     return (
       <div className="forms">
         <div className="title1">New Recipe</div>
@@ -412,10 +409,8 @@ export default class NewRecipe extends Component {
 }
 
 NewRecipe.propTypes = {
-  // This component gets the task to display through a React prop.
-  // We can use propTypes to indicate it is required
-  //task: PropTypes.object.isRequired,
-  //showPrivateButton: React.PropTypes.bool.isRequired
-
   user: PropTypes.object.isRequired,
 };
+
+// srojas19: exportar al final, para reconocer los proptypes
+export default NewRecipe;
