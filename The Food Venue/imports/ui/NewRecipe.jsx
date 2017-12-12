@@ -24,6 +24,7 @@ export default class NewRecipe extends Component {
           <b>Amount:</b> {ingredient.amount} s  &nbsp;
           <b>Type:</b>{ingredient.type}
           <button aria-label="Delete ingredient from recipe" type="button" onClick={() => this.deleteIngredient(key)}>DELETE</button>
+            //Muy bien el uso de arrow functions
         </div>)
       });
     }
@@ -98,7 +99,7 @@ export default class NewRecipe extends Component {
       <div className="forms">
         <div className="title1">New Recipe</div>
           <form onSubmit={this.addRecipe.bind(this)}>
-          <br /><br /><br /><br />
+          <br /><br /><br /><br /> // esto se pudo haber hecho con css con padding o margin, etc.
           <label for="name">Name: </label><input name="name" type="text" ref="recipeName" aria-label="Recipe name" required />
           <br />
           <label for="country">Country: </label>
@@ -400,10 +401,12 @@ export default class NewRecipe extends Component {
             aria-label="Add an ingredient to your recipe"
             type="button"
             onClick={this.addIngredient.bind(this)}>
+            //se realiza el bind adecuadamente, aunque se pueden explorar otras formas más sencillas de hacerlo como usar arrow functions
             Add ingredient
           </button>
 
           {this.state.ingredients.length ? <button aria-label="Add a new recipe" >ADD RECIPE</button> : ''}
+            //Excelente uso de if
         </form>
       </div>
 
@@ -416,6 +419,7 @@ NewRecipe.propTypes = {
   // We can use propTypes to indicate it is required
   //task: PropTypes.object.isRequired,
   //showPrivateButton: React.PropTypes.bool.isRequired
-
+  
+  //dos proptypes comentados, evitar dejar lineas en el codigo que no son utiles
   user: PropTypes.object.isRequired,
 };
