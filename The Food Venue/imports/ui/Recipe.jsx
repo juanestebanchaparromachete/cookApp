@@ -8,12 +8,14 @@ export default class Recipe extends Component {
     super(props);
 
     this.goRecipe = this.goRecipe.bind(this);
+    //se realiza el bind adecuadamente, aunque se pueden explorar otras formas más sencillas de hacerlo como usar arrow functions
   }
   goRecipe(idR) {
     this.props.seeRecipe(idR);
   }
   render() {
     let recipeClass = '';
+    //Muy buen uso de let en ECMAScript 6 en vez de var
     if (this.props.num > 2) {
       recipeClass = 'smallRecipe';
     } else if (this.props.num === 2) {
@@ -42,6 +44,7 @@ export default class Recipe extends Component {
   }
 }
 Recipe.propTypes = {
+  //Muy bien por utilizar proptypes
   recipe: PropTypes.object.isRequired,
   num: React.PropTypes.number.isRequired,
   seeRecipe: PropTypes.func.isRequired,
