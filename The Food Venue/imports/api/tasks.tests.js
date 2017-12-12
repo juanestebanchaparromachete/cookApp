@@ -13,6 +13,7 @@ if (Meteor.isServer) {
       let taskId;
 
       beforeEach(() => {
+        //Luis Plazas: Muy buen uso de las pruebas, aunque hubiera sido bueno que usaran las librerias vistas en clase para crear un usuario y destruilo antes y despues de cada prueba.
         Tasks.remove({});
         taskId = Tasks.insert({
           text: 'test task',
@@ -36,6 +37,7 @@ if (Meteor.isServer) {
         // Verify that the method does what we expected
         assert.equal(Tasks.find().count(), 0);
       });
+      //Luis Plazas: se pudieron haber probado los casos de insercion y edicion.
     });
   });
 }
