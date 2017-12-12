@@ -25,12 +25,16 @@ export default class Chef extends Component {
     }
 
     follow(id) {
+        //Estas funciones deberían tener callbacks para el manejo de eventuales errores.
         Meteor.call('chefs.follow', id);
+        //Estas funciones deberían tener callbacks para el manejo de eventuales errores.
         Meteor.call('chefs.followMy', id);
     }
 
     unfollow(id) {
+        //Estas funciones deberían tener callbacks para el manejo de eventuales errores.
         Meteor.call('chefs.unfollow', id);
+        //Estas funciones deberían tener callbacks para el manejo de eventuales errores.
         Meteor.call('chefs.unfollowMy', id);
     }
 
@@ -86,6 +90,7 @@ export default class Chef extends Component {
                         <div className="title1">{this.props.chef.name}</div>
                         <br />
                         <div className="rating">
+                            //El alt debe tener una descripción de la imágen
                             {this.props.chef.rating} <img src="/favorite.png" alt="" /></div>
                         <br />
                         <div className="txt1">
