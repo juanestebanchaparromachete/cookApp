@@ -47,6 +47,7 @@ export default class RecipeDetail extends Component {
             <div onClick={() => { this.viewUser(this.props.recipe.userID) }} className="txt1">{this.props.recipe.username}</div>
             <div className="rating">{this.props.recipe.rating}
               <img src="/favorite.png" alt="" /></div>
+            //Duplicado atributo ref
             <select name="rating" ref="ratevalueSelect"  value={this.state.rating} onChange={this.updateRating} ref="rating">
               <option value="5">5</option>
               <option value="4">4</option>
@@ -54,6 +55,7 @@ export default class RecipeDetail extends Component {
               <option value="3">2</option>
               <option value="3">1</option>
             </select><button onClick={() => { this.rate() }} >RATE</button>
+            //Muy buen uso de las arrow functions
           </div>
         </div>
         <div id="recipDesc" className="section autoH">
@@ -89,6 +91,7 @@ export default class RecipeDetail extends Component {
   }
 }
 RecipeDetail.propTypes = {
+  //Muy bien por utilizar proptypes
   recipe: PropTypes.object.isRequired,
   goUser: PropTypes.func.isRequired,
   curUser: PropTypes.object.isRequired,
